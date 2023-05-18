@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Feedback{% endblock title %}
+
+{% block body %}
+<div class="container-fluid bg-dark text-light" style="overflow: scroll; height: calc(100vh - 104px);">
+    <div class="container">
+        <h1 class="text-center">Feedback</h1>
+        <h4 class="text-center pb-4">Make a Difference in 3 Minutes or Less! Traveloholic values your feedback </h4>
+        <div class="container">
+            <div class="container">
+                <div class="container">
+                    <div class="container px-4">
+                        <form method="POST" action="/feedback/">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter you email">
+                            </div>
+                            <div>
+                                <div class="pb-1">How much you will rate us?</div>
+                                <label for="rate" class="form-label" style="display: block;">Please rate us on 1 to 5
+                                    scale</label>
+                                <input type="range" class="form-range" min="1" max="5" id="rate" name="rate"
+                                    style="width: 200px;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="content" class="form-label">Descibe your experience to us</label>
+                                <textarea class="form-control" name="content" id="content" rows="6"
+                                    placeholder="Write your experience here"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
